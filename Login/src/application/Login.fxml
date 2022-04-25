@@ -13,6 +13,6 @@
       <Label fx:id="nameInputLabel" layoutX="215.0" layoutY="102.0" text="Nombre" />
       <Label fx:id="passInputLabel" layoutX="215.0" layoutY="192.0" text="Contraseña" />
       <Button fx:id="btnLogin" layoutX="269.0" layoutY="277.0" mnemonicParsing="false" onAction="#doLogin" text="Ingresar" />
-      <Label fx:id="statusLabel" layoutX="217.0" layoutY="333.0" prefHeight="16.0" prefWidth="171.0" text="Label" />
+      <Label fx:id="statusLabel" layoutX="217.0" layoutY="333.0" prefHeight="16.0" prefWidth="171.0" />
    </children>
 </AnchorPane>
