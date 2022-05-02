@@ -83,6 +83,6 @@
       </Label>
       <TextField fx:id="resExpValue" layoutX="152.0" layoutY="603.0" />
       <Button fx:id="detailsBtn" layoutX="370.0" layoutY="603.0" mnemonicParsing="false" text="Detalles" />
-      <Button fx:id="goToInitialScreenBtn" layoutX="224.0" layoutY="648.0" mnemonicParsing="false" text="Regresar al Menu" />
+      <Button fx:id="goToInitialScreenBtn" layoutX="224.0" layoutY="648.0" mnemonicParsing="false" onAction="#goToInitialScreen" text="Regresar al Menu" />
    </children>
 </AnchorPane>
