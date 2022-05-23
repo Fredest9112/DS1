@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.JuegoController">
+   <children>
+      <Label fx:id="gameLabel" layoutX="282.0" layoutY="47.0" text="Juego">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="num1Label" layoutX="115.0" layoutY="91.0" text="Numero1:" />
+      <Label fx:id="num2Label" layoutX="333.0" layoutY="91.0" text="Numero2:" />
+      <TextField fx:id="num1" layoutX="188.0" layoutY="87.0" prefHeight="24.0" prefWidth="94.0" />
+      <TextField fx:id="num2" layoutX="406.0" layoutY="87.0" prefHeight="24.0" prefWidth="94.0" />
+      <Button fx:id="startButton" layoutX="282.0" layoutY="176.0" mnemonicParsing="false" onAction="#checkGameScreen" text="Empezar!" />
+      <Label fx:id="intentsLabel" layoutX="227.0" layoutY="137.0" text="Intentos:" />
+      <TextField fx:id="intents" layoutX="294.0" layoutY="133.0" prefHeight="24.0" prefWidth="94.0" />
+      <TextField fx:id="inputNum" layoutX="183.0" layoutY="242.0" prefHeight="24.0" prefWidth="52.0" />
+      <Label fx:id="inputNumLabel" layoutX="44.0" layoutY="246.0" text="Digite Un Numero:" />
+      <Button fx:id="playButton" layoutX="417.0" layoutY="242.0" mnemonicParsing="false" onAction="#playing" text="Jugar" />
+      <Label fx:id="currentIntentsLabel" layoutX="105.0" layoutY="280.0" text="Intentos:" />
+      <Label fx:id="currentIntents" layoutX="182.0" layoutY="280.0" text="0 intentos" />
+      <Label fx:id="numbsIntentedLabel" layoutX="35.0" layoutY="314.0" text="Numeros probados:" />
+      <Label fx:id="numbsIntented" layoutX="180.0" layoutY="314.0" text="tus intentos" />
+      <Label fx:id="gameStatus" alignment="CENTER" layoutX="343.0" layoutY="278.0" minHeight="20.0" minWidth="200.0" prefHeight="16.0" prefWidth="52.0" />
+      <Button fx:id="replayButton" layoutX="386.0" layoutY="310.0" mnemonicParsing="false" onAction="#setNewGame" text="volver a jugar!" />
+   </children>
+</AnchorPane>
