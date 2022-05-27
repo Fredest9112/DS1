@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginFXController">
+   <children>
+      <TextField fx:id="username" layoutX="300.0" layoutY="79.0" prefHeight="34.0" prefWidth="200.0" promptText="Username" />
+      <PasswordField fx:id="password" layoutX="300.0" layoutY="146.0" prefHeight="34.0" prefWidth="200.0" promptText="PassWord" />
+      <Button fx:id="btn" layoutX="369.0" layoutY="232.0" mnemonicParsing="false" onAction="#loginCode" text="Login" >
+			<graphic>
+				<ImageView fitHeight="20" fitWidth="20">
+      		<image>
+            <Image url="@../img/will.jpg" />
+      		</image>
+      </ImageView>
+			</graphic>
+      </Button>
+      <Label fx:id="mylabel" alignment="CENTER" layoutX="280.0" layoutY="293.0" prefHeight="34.0" prefWidth="241.0">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+      		<image>
+            <Image url="@../img/will.jpg" />
+      		</image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PieChartController">
+   <children>
+      <PieChart fx:id="mypie" clockwise="false" layoutX="50.0" layoutY="28.0" legendSide="LEFT" title="PieChart" />
+      <Button fx:id="btn1" layoutX="246.0" layoutY="479.0" mnemonicParsing="false" onAction="#btn1" text="Load PieChart" />
+      <Label fx:id="mylabel" alignment="CENTER" layoutX="405.0" layoutY="479.0" prefHeight="24.0" prefWidth="109.0" />
+   </children>
+</AnchorPane>
