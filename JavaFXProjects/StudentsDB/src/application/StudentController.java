@@ -2,6 +2,7 @@ package application;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
@@ -29,7 +30,7 @@ public class StudentController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+		
 	}
 
 	public void loadStudentData(ActionEvent event) {
@@ -53,5 +54,38 @@ public class StudentController implements Initializable{
 		
 		studenttable.setItems(null);
 		studenttable.setItems(data);
+	}
+	
+	public void addStudent(ActionEvent event) {
+		try {
+			Connection connection = SqliteConnection.connector();
+			PreparedStatement ps = connection.prepareStatement(
+					"INSERT INTO StudentList(Id, Firstname, Lastname, Username, Password, Age, Subject) VALUES (?,?,?,?,?,?,?)"
+					);
+			ps.setString(1, inputid.getText());
+			ps.setString(2, inputfirstname.getText());
+			ps.setString(3, inputlastname.getText());
+			ps.setString(4, inputusername.getText());
+			ps.setString(5, inputpassword.getText());
+			ps.setString(6, inputage.getText());
+			ps.setString(7, inputsubject.getText());
+			
+			ps.execute();
+			connection.close();
+			loadStudentData(event);
+			clearInputs(event);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void clearInputs(ActionEvent event) {
+		inputid.setText("");
+		inputfirstname.setText("");
+		inputlastname.setText("");
+		inputusername.setText("");
+		inputpassword.setText("");
+		inputage.setText("");
+		inputsubject.setText("");
 	}
 }
