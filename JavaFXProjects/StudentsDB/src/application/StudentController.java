@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -12,9 +13,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class StudentController implements Initializable{
 	@FXML
@@ -69,13 +72,65 @@ public class StudentController implements Initializable{
 			ps.setString(5, inputpassword.getText());
 			ps.setString(6, inputage.getText());
 			ps.setString(7, inputsubject.getText());
-			
 			ps.execute();
 			connection.close();
 			loadStudentData(event);
 			clearInputs(event);
 		} catch(Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public void updateStudent(ActionEvent event) {
+		try {
+			Connection connection = SqliteConnection.connector();
+			StudentData data = studenttable.getSelectionModel().getSelectedItem();
+			PreparedStatement ps = connection.prepareStatement(
+					"UPDATE StudentList SET Firstname = ?, Lastname = ?, Username = ?, Password = ?, Age = ?, Subject = ? WHERE ID = ?"
+					);
+			ps.setString(1, inputfirstname.getText());
+			ps.setString(2, inputlastname.getText());
+			ps.setString(3, inputusername.getText());
+			ps.setString(4, inputpassword.getText());
+			ps.setString(5, inputage.getText());
+			ps.setString(6, inputsubject.getText());
+			ps.setString(7, data.getId());
+			ps.executeUpdate();
+			connection.close();
+			clearInputs(event);
+			loadStudentData(event);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void deleteStudent(ActionEvent event) {
+		try {
+			Connection connection = SqliteConnection.connector();
+			StudentData data = studenttable.getSelectionModel().getSelectedItem();
+			PreparedStatement ps = connection.prepareStatement(
+					"DELETE FROM StudentList WHERE ID = ?"
+					);
+			ps.setString(1, data.getId());
+			ps.executeUpdate();
+			clearInputs(event);
+			loadStudentData(event);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void getRowData(MouseEvent event) {
+		if(event.getClickCount()==1) {
+			StudentData data = studenttable.getSelectionModel().getSelectedItem();
+			inputid.setText(data.getId());
+			inputfirstname.setText(data.getFirstname());
+			inputlastname.setText(data.getLastname());
+			inputusername.setText(data.getUsername());
+			inputpassword.setText(data.getPassword());
+			inputage.setText(data.getAge());
+			inputsubject.setText(data.getSubject());
 		}
 	}
 	
