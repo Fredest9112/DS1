@@ -13,6 +13,6 @@
          </font>
       </Label>
       <Button fx:id="resByColorsBtn" layoutX="211.0" layoutY="146.0" mnemonicParsing="false" onAction="#goToResByColorsScreen" text="Resistencias por Colores" />
-      <Button fx:id="resByValuesBtn" layoutX="211.0" layoutY="217.0" mnemonicParsing="false" text="Resistencias por Valores" />
+      <Button fx:id="resByValuesBtn" layoutX="211.0" layoutY="217.0" mnemonicParsing="false" onAction="#goToResByValuesScreen" text="Resistencias por Valores" />
    </children>
 </AnchorPane>

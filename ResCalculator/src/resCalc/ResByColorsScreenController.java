@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -35,7 +37,7 @@ public class ResByColorsScreenController implements Initializable {
 	private Button detailsBtn, goToInitialScreenBtn, calcResTheoValue;
 
 	private ValidateInputs validateInputs;
-	
+
 	private Calculate calculate;
 
 	@Override
@@ -77,6 +79,11 @@ public class ResByColorsScreenController implements Initializable {
 						calculate.calculateFourBandsResistor(band1, band2, mult, tolerancia);
 				resTheoValue.setText(resistencia.getValorResistencia()+" ohms");
 				toleranceValue.setText(resistencia.getValorTolerancia()+" %");
+			} else {
+				Alert a = new Alert(AlertType.NONE);
+				a.setAlertType(AlertType.ERROR);
+				a.setContentText("Hay datos vacios!");
+				a.show();
 			}
 		} else if(fiveBandsChoice.isSelected()) {
 			String band1 = band1Choice.getValue();
@@ -90,6 +97,11 @@ public class ResByColorsScreenController implements Initializable {
 						band1, band2, band3, mult, tolerancia);
 				resTheoValue.setText(resistencia.getValorResistencia()+" ohms");
 				toleranceValue.setText(resistencia.getValorTolerancia()+" %");
+			} else {
+				Alert a = new Alert(AlertType.NONE);
+				a.setAlertType(AlertType.ERROR);
+				a.setContentText("Hay datos vacios!");
+				a.show();
 			}
 		} else if(sixBandsChoice.isSelected()) {
 			String band1 = band1Choice.getValue();
@@ -106,15 +118,33 @@ public class ResByColorsScreenController implements Initializable {
 				resTheoValue.setText(resistencia.getValorResistencia()+" ohms");
 				toleranceValue.setText(resistencia.getValorTolerancia()+" %");
 				ppmValue.setText(resistencia.getValorPPM());
+			} else {
+				Alert a = new Alert(AlertType.NONE);
+				a.setAlertType(AlertType.ERROR);
+				a.setContentText("Hay datos vacios!");
+				a.show();
 			}
 		}
 	}
-	
+
 	public void goToInitialScreen(ActionEvent event) {
 		SingleStage initialStage = SingleStage.getSingleStage(new Stage());
 		initialStage.stage.close();
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("InitialScreen.fxml"));
+			Scene scene = new Scene(root);
+			initialStage.stage.setScene(scene);
+			initialStage.stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void goToDetailsScreen(ActionEvent event) {
+		SingleStage initialStage = SingleStage.getSingleStage(new Stage());
+		initialStage.stage.close();
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("UsableRes.fxml"));
 			Scene scene = new Scene(root);
 			initialStage.stage.setScene(scene);
 			initialStage.stage.show();

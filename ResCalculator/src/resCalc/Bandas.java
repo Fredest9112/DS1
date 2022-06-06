@@ -9,6 +9,8 @@ public class Bandas {
 	private Map<String, Double> valoresMultiplicador;
 	private Map<String, Double> valoresDePPM;
 	private Map<String, Double> valoresDeTolerancias;
+	private Map<String, String> valoresScreenValue;
+	private Map<String, String> valoresMultiplicadorByValue;
 	
 	public Bandas() {
 		this.valoresDeBandas = getValoresDeBandas();
@@ -16,6 +18,38 @@ public class Bandas {
 		this.valoresDePPM = getValoresDePPM();
 		this.valoresDeTolerancias = getValoresDeTolerancias();
 	}
+	
+	public Map<String, String> getValoresScreenValue() {
+        valoresScreenValue = new HashMap<String, String>();
+        valoresScreenValue.put("0", "Negro");
+        valoresScreenValue.put("1", "Cafe");
+        valoresScreenValue.put("2", "Rojo");
+        valoresScreenValue.put("3", "Naranja");
+        valoresScreenValue.put("4", "Amarillo");
+        valoresScreenValue.put("5", "Verde");
+        valoresScreenValue.put("6", "Azul");
+        valoresScreenValue.put("7", "Violeta");
+        valoresScreenValue.put("8", "Gris");
+        valoresScreenValue.put("9", "Blanco");
+        return valoresScreenValue;
+    }
+	
+	public Map<String, String> getValoresMultiplicadorByValue() {
+        valoresMultiplicadorByValue = new HashMap<String, String>();
+        valoresMultiplicadorByValue.put("1", "Negro");
+        valoresMultiplicadorByValue.put("2", "Cafe");
+        valoresMultiplicadorByValue.put("3", "Rojo");
+        valoresMultiplicadorByValue.put("4", "Naranja");
+        valoresMultiplicadorByValue.put("5", "Amarillo");
+        valoresMultiplicadorByValue.put("6", "Verde");
+        valoresMultiplicadorByValue.put("7", "Azul");
+        valoresMultiplicadorByValue.put("8", "Violeta");
+        valoresMultiplicadorByValue.put("9", "Gris");
+        valoresMultiplicadorByValue.put("10", "Blanco");
+        valoresMultiplicadorByValue.put("11", "Dorado");
+        valoresMultiplicadorByValue.put("12", "Plateado");
+        return valoresMultiplicadorByValue;
+    }
 	
 	public Map<String, Double> getValoresDeBandas() {
 		valoresDeBandas = new HashMap<String, Double>();

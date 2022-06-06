@@ -28,4 +28,17 @@ public class InitialScreenController{
 			e.printStackTrace();
 		}
 	}
+	
+	public void goToResByValuesScreen(ActionEvent event) {
+		SingleStage initialStage = SingleStage.getSingleStage(new Stage());
+		initialStage.stage.close();
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("ResByValue.fxml"));
+			Scene scene = new Scene(root);
+			initialStage.stage.setScene(scene);
+			initialStage.stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
